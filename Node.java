@@ -30,8 +30,4 @@ public class Node{
     prev = n;
   }
 
-  public static void main(String[] args) {
-    Node a = new Node("HII");
-    System.out.println(a.getNext());
-  }
 }
