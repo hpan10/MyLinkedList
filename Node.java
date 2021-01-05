@@ -10,7 +10,19 @@ public class Node{
     data = s;
   }
 
+  public String getNext(){
+    return next.getData();
+  }
+
   public void setNext(Node n){
-    
+    next = n;
+  }
+
+  public String getPrev(){
+    return prev.getData();
+  }
+
+  public void setPrev(Node n){
+    prev = n;
   }
 }
