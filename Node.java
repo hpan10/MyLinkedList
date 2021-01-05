@@ -14,19 +14,24 @@ public class Node{
     data = value;
   }
 
-  public String getNext(){
-    return next.getData();
+  public Node getNext(){
+    return next;
   }
 
   public void setNext(Node n){
     next = n;
   }
 
-  public String getPrev(){
-    return prev.getData();
+  public Node getPrev(){
+    return prev;
   }
 
   public void setPrev(Node n){
     prev = n;
+  }
+
+  public static void main(String[] args) {
+    Node a = new Node("HII");
+    System.out.println(a.getNext());
   }
 }
