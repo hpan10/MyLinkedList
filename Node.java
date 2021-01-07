@@ -20,7 +20,7 @@ public class Node{
 
   public void setNext(Node n){
     next = n;
-    next.prev = this;
+    if (n!= null) next.prev = this;
   }
 
   public Node getPrev(){
@@ -29,7 +29,7 @@ public class Node{
 
   public void setPrev(Node n){
     prev = n;
-    prev.next = this;
+    if (n != null) prev.next = this;
   }
 
 }
