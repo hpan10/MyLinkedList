@@ -23,18 +23,19 @@ public class MyLinkedList{
     return true;
   }
 
-  public boolean add(int index, String value){
+  public void add(int index, String value){
     if (index < 0 || index > size){
       throw new IndexOutOfBoundsException("Your index must be within 0 and " + size + "!");
     }
     if (index == 0){
-      if (size == 0) return add(value);
-      start.setPrev(new Node(value));
-      start = start.getPrev();
+      if (size == 0) add(value);
+      else {
+        start.setPrev(new Node(value));
+        start = start.getPrev();
+        size++;
+      }
     }
-    else if (index == size){
-      return add(value);
-    }
+    else if (index == size) add(value);
     else {
       Node current = start;
       int i = 1;
@@ -44,9 +45,8 @@ public class MyLinkedList{
       }
       current.getNext().setPrev(new Node(value));
       current.setNext(current.getNext().getPrev());
+      size++;
     }
-    size++;
-    return true;
   }
 
   public String get(int index){
@@ -86,6 +86,20 @@ public class MyLinkedList{
       while (current != end){
         list += current.getData() + ", ";
         current = current.getNext();
+      }
+      list += current.getData();
+    }
+    list += "]";
+    return list;
+  }
+
+  public String toStringReversed(){
+    Node current = end;
+    String list = "[";
+    if (current != null){
+      while (current != start){
+        list += current.getData() + ", ";
+        current = current.getPrev();
       }
       list += current.getData();
     }
